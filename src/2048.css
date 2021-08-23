@@ -1,0 +1,214 @@
+html {
+  padding: 0;
+  margin:0;
+  font-size: 16px;
+}
+* {
+  padding: 0;
+  margin:0;
+}
+body {
+  background-color: rgb(250,248,239);
+  color: #776e65;
+  padding:0;
+
+}
+#container {
+  max-width: 500px;
+  max-height: 50rem;
+  width: 100vw;
+  height: 100vh;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.heading {
+  display: flex;
+  max-width: 500px;
+  width: calc(100vw * 0.92);
+  margin: 0 auto;
+  justify-content: space-between;
+  vertical-align: bottom;
+}
+.heading.right{
+  width: 40%;
+  display: inline-flex;
+  margin: 0;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: bolder;
+}
+.heading.left{
+  font-size: 6.5rem;
+  margin: 0;
+  padding: 0;
+  width: 50%;
+  display: inline-block;
+}
+#score {
+  display: inline-block;   
+  font-size: 2rem;
+  width: 50%;
+  height: 60%;
+  background-color: #bbada0;
+  border-radius: 8px;
+  color: white;
+  padding: 0 5px;
+  text-align: center;
+  line-height: 120%;
+  overflow: hidden;
+  vertical-align: text-bottom;
+}
+#score::before {
+  content: "score";
+  display: block;
+  color: aliceblue;
+  font-size: 16px;
+  text-align: center;
+}
+#score.newRecord {
+  color: rgb(235, 81, 10);
+}
+#gameContainer {
+  background-color: #bbada0;
+  position: relative;
+  margin:0 auto 1rem;
+  overflow: hidden;
+  max-width: 500px;
+  max-height: 500px;
+  width: calc(100vw * 0.92);
+  height: calc(100vw * 0.92);
+  border-radius: 8px;
+  flex: 0 0 auto;
+}
+#controls {
+  max-width: 500px;
+  width: 100vw;
+  width: calc(100vw * 0.92);
+  height: 10vh;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+button:last-of-type {
+  background-color: rgb(235, 81, 10);
+}
+button {
+  width: 30%;
+  height: 6vh;
+  color: white;
+  border: none;
+  padding: 0 15px;
+  font-size: 1rem;
+  background-color: #8f7a66;
+  border-radius: 8px;
+  outline: none;
+}
+button:hover {
+  background-color: #bbada0;
+}
+button:last-of-type:hover {
+  background-color: #ECC400;
+}
+#gameOver {
+  position: absolute;
+  top: 0;
+  bottom:0;
+  left: 0;
+  right:0;
+  overflow: hidden;
+  z-index: 2;
+  max-width: 500px;
+  max-height: 500px;
+  /* width: 100vw; */
+  line-height: 500px;
+  background-color: rgb(250,248,239,0.5);
+  border-radius: 8px;
+  text-align: center;
+  vertical-align: middle;
+  font-weight: 900;
+  font-size: 2.5rem;
+  opacity: 0;
+}
+#addScore {
+  position: absolute;
+  top: 80px;
+  right: 0;
+  width: 80px;
+  font-size: 2rem;
+  color: rgb(235, 81, 10);
+  text-align: center;
+  opacity: 0;
+}
+#record {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  color: #8f7a66;
+  font-size: 40px;
+  background-size: contain;
+  position: relative;
+  
+}
+#record:hover {
+  color: #ECC400;
+  transform: scale(1.2);
+  transition: all 1s;
+}
+#record:hover::after {
+  content: attr(record);
+  color: #ECC400;
+  font-size: 18px;
+  position: absolute;
+  display: block;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+#record.newRecord {
+  color: rgb(235, 81, 10)
+}
+#record.newRecord::after {
+  content: "New Record!";
+  color: rgb(235, 81, 10);
+  font-size: 12px;
+  position: absolute;
+  display: block;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+.info {
+  width: 100vw;
+  height: 5vh;
+  overflow: hidden;
+  font-size: 1rem;
+}
+/* #record::after {
+  content: 'Record';
+  display: block;
+  position: absolute;
+  bottom: -15px;
+  left: -4px;
+  font-size: 16px;
+  color: #ce9f04;
+} */
+/* jquery mobile  */
+.ui-loader-default{ display:none}
+.ui-mobile-viewport{ border:none;}
+.ui-page {padding: 0; margin: 0; outline: 0} 
+/* 报错 */
+* {
+  touch-action: none;
+}
+
+@media screen and (max-width:500px){
+  .heading.left {
+    font-size: 20vw;
+  }
+  #gameOver {
+    line-height: 92vw;
+  }
+}
