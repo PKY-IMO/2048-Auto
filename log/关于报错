@@ -1,0 +1,21 @@
+[Intervention] Unable to preventDefault inside passive event listener due to target being treated a passive
+描述：违反：没有添加被动事件监听器来阻止’touchstart’事件，请考虑添加事件管理者’passive’，以使页面更加流畅。
+出现如上提示这可能是由于console的过滤器选择了Verbose
+由于浏览器必须要在执行事件处理函数之后，才能知道有没有掉用过 preventDefault() ，这就导致了浏览器不能及时响应滚动，略有延迟。
+
+所以为了让页面滚动的效果如丝般顺滑，从 chrome56 开始，在 window、document 和 body 上注册的 touchstart 和 touchmove 事件处理函数，
+会默认为是 passive: true。
+浏览器忽略 preventDefault() 就可以第一时间滚动了。
+
+那么如何解决这个问题呢？不让控制台提示，而且 preventDefault() 有效果呢？
+两个方案：
+1、注册处理函数时，用如下方式，明确声明为不是被动的
+window.addEventListener(‘touchmove’, func, { passive: false })
+2、应用 CSS 属性 touch-action: none; 这样任何触摸事件都不会产生默认行为，但是 touch 事件照样触发。
+touch-action 还有很多选项，详细请参考touch-action
+所有的元素的 touchstart touchmove 事件处理函数都会默认为 passive: true
+
+
+字体在div底部显示：
+  line-height：1.7height
+

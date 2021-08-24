@@ -1,0 +1,5 @@
+touch
+touches 多个手指开始
+  event.touches[0].pageX
+  event.touches[0].pageY
+changedTouches
